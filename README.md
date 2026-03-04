@@ -1,6 +1,6 @@
 # homebrew-sipctl
 
-Homebrew tap for [sipctl](https://github.com/vyshnavsdeepak/gh-cli-context-optimised) — the `sip` MCP server.
+Homebrew tap for [sipctl](https://github.com/vyshnavsdeepak/sipctl) — the `sip` MCP server.
 
 ## Install
 
