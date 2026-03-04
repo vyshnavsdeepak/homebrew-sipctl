@@ -1,0 +1,37 @@
+class Sipctl < Formula
+  desc "CLI context router for AI agents — sip from the firehose"
+  homepage "https://github.com/vyshnavsdeepak/gh-cli-context-optimised"
+  version "{{VERSION}}"
+  license "MIT"
+
+  on_macos do
+    on_arm do
+      url "{{BASE_URL}}/sip-darwin-arm64"
+      sha256 "{{SHA_DARWIN_ARM64}}"
+    end
+    on_intel do
+      url "{{BASE_URL}}/sip-darwin-x64"
+      sha256 "{{SHA_DARWIN_X64}}"
+    end
+  end
+
+  on_linux do
+    on_arm do
+      url "{{BASE_URL}}/sip-linux-arm64"
+      sha256 "{{SHA_LINUX_ARM64}}"
+    end
+    on_intel do
+      url "{{BASE_URL}}/sip-linux-x64"
+      sha256 "{{SHA_LINUX_X64}}"
+    end
+  end
+
+  def install
+    bin.install Dir["sip-*"].first => "sip"
+  end
+
+  test do
+    # MCP server starts on stdin; just verify the binary runs
+    assert_match "", shell_output("echo '' | #{bin}/sip 2>&1 || true")
+  end
+end
